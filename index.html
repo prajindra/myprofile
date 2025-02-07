@@ -936,17 +936,17 @@ github:
           <textarea name="name" rows="5" cols="80"> Message</textarea>
           <button class="btn2 btn3">Send Message</button>
         </form> -->
-        <form class="mtop" id="contact-form">
+        <form name="submit-to-google-sheet" class="mtop" id="contact-form">
           <div class="input grid">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="text" id="subject" placeholder="Subject">
-            <input type="text" id="phone" placeholder="Phone">
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="text" name="Subject" placeholder="Subject">
+            <input type="text" name="Phone" placeholder="Phone">
           </div>
-          <textarea id="message" rows="5" cols="80" placeholder="Message"></textarea>
+          <textarea name="Message" rows="5" cols="80" placeholder="Message"></textarea>
           <button type="submit" class="btn2 btn3">Send Message</button>
         </form>
-        <p id="response-message"></p>
+        <span id="msg"></span>
         
       </div>
   </section>
@@ -1210,40 +1210,24 @@ github:
     });
   </script>
 
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault();
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbz9Hkyua1HEixj5XQyfzVBDyBfBU3RzCdnR_P2rl3n77IzR16ZX9_wMjsLVUt5xAOYQfQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById('msg')
 
-      let formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        phone: document.getElementById("phone").value,
-        message: document.getElementById("message").value
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbxy4JmBmAG7cp2w2vFot3YvpleBNvLLjOKHuYjjyJG25uw7eXH5QkhUUF5qzHh3_FAiaA/exec", {  // Replace with the correct deployed URL
-        method: "POST",
-        mode: "cors",  // Ensures cross-origin requests work
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully!"
+        setTimeout(() => {
+          msg.innerHTML = ""
+        }, 5000)
+        form.reset()
       })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("response-message").innerText = data.message;
-        document.getElementById("contact-form").reset();
-      })
-      .catch(error => {
-        document.getElementById("response-message").innerText = "Error Sending Message!";
-        console.error("Error:", error);
-      });
-    });
-
-
-
-  </script>
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 
   
 

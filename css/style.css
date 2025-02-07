@@ -1316,3 +1316,9 @@ footer .legal {
 .icon a:visited i {
   color: #b0b0b0 !important;
 }
+
+#msg {
+  color: #20C863;
+  margin-top: -10px;
+  display: block;
+}
