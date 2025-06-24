@@ -181,14 +181,37 @@ p {
   color: #fff;
 }
 
-/* Courses & Research Sections */
-.courses, .research {
+/* Biography Section */
+.biography {
   padding: 4rem 0;
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 
-.courses {
-  background-color: #f9f9f9;
+.bio-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bio-content h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio-content h4 {
+  color: #20C863;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.bio-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 
 .section-description {
