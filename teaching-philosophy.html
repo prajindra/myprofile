@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Teaching Philosophy | Ir. Dr. Prajindra Sankar Krishnan</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/teaching-philosophy.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="nav-logo">
+          <img src="image/Universiti_Tenaga_Nasional_Logov6.png" alt="UNITEN Logo">
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#teaching-philosophy" class="nav-link active">Teaching Philosophy</a>
+          </li>
+          <li class="nav-item">
+            <a href="#courses" class="nav-link">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a href="#research" class="nav-link">Research</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Back to Profile</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="teaching-philosophy" class="hero">
+    <div class="hero-overlay">
+      <div class="container">
+        <h1>Teaching Philosophy</h1>
+        <p class="subtitle">Blending real-world engineering with academic excellence to shape Malaysia's future innovators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles Section -->
+  <section class="principles">
+    <div class="container">
+      <h2>My Teaching Principles</h2>
+      <div class="principles-grid">
+        <!-- Principle 1 -->
+        <div class="principle-card">
+          <div class="icon-container">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3>Applied Engineering</h3>
+          <p>My courses integrate real-world case studies, site visits, and lab upgrades to ensure experiential learning.</p>
+        </div>
+
+        <!-- Principle 2 -->
+        <div class="principle-card">
+          <div class="icon-container">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>Blended Innovation</h3>
+          <p>I design Flipped and Adaptive LMS for subjects like AI, IoT, and Data Analytics.</p>
+        </div>
+
+        <!-- Principle 3 -->
+        <div class="principle-card">
+          <div class="icon-container">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h3>Student Empowerment</h3>
+          <p>Over 6000 students taught; mentorship spans from FYPs to PhDs with strong publication support.</p>
+        </div>
+
+        <!-- Principle 4 -->
+        <div class="principle-card">
+          <div class="icon-container">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Stakeholder Collaboration</h3>
+          <p>Frequent IAP panels, alumni talks, and industry integration ensure students remain future-ready.</p>
+        </div>
+
+        <!-- Principle 5 -->
+        <div class="principle-card">
+          <div class="icon-container">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Tech-Driven Pedagogy</h3>
+          <p>Courses leverage AI, ML, IoT and practical tools from ongoing research and consultancy projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section Placeholder -->
+  <section id="courses" class="courses">
+    <div class="container">
+      <h2>Courses</h2>
+      <p class="section-description">Coming soon: Information about courses taught and developed.</p>
+    </div>
+  </section>
+
+  <!-- Research Section Placeholder -->
+  <section id="research" class="research">
+    <div class="container">
+      <h2>Research</h2>
+      <p class="section-description">Coming soon: Information about research interests and projects.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Ir. Dr. Prajindra Sankar Krishnan | My Teaching Journey</p>
+      <p class="last-updated">Last updated: June 2025</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    // Sticky header
+    window.addEventListener("scroll", function() {
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    // Active navigation highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
